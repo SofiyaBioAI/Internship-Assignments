@@ -6,60 +6,69 @@ using System.Threading.Tasks;
 
 namespace Core_ConsoleApp1
 {
-    public class ConditionalExample
+    public class MenuExample
     {
-        public static void menu1()
+        public static void RunRepeatedMenu()
         {
-            Console.WriteLine("\n--- Operator Menu ---");
-            Console.WriteLine("1. Addition (+)");
-            Console.WriteLine("2. Subtraction (-)");
-            Console.WriteLine("3. Multiplication (*)");
-            Console.WriteLine("4. Division (/)");
+            Console.Write("How many times do you want to repeat the calculations? ");
+            int totalRepetitions = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter your choice: ");
-            int choice = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Enter first number: ");
-            int a = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Enter second number: ");
-            int b = Convert.ToInt32(Console.ReadLine());
-
-            int c;
-
-            switch (choice)
+            for (int i = 1; i <= totalRepetitions; i++)
             {
-                case 1:
-                    c = a + b;
-                    Console.WriteLine("Result = " + c);
-                    break;
+                Console.WriteLine($"\n================ REPETITION {i} of {totalRepetitions} ================");
 
-                case 2:
-                    c = a - b;
-                    Console.WriteLine("Result = " + c);
-                    break;
+                Console.Write("Enter first number (a): ");
+                int a = Convert.ToInt32(Console.ReadLine());
 
-                case 3:
-                    c = a * b;
-                    Console.WriteLine("Result = " + c);
-                    break;
+                Console.Write("Enter second number (b): ");
+                int b = Convert.ToInt32(Console.ReadLine());
 
-                case 4:
-                    if (b != 0)
-                    {
-                        c = a / b;
-                        Console.WriteLine("Result = " + c);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Cannot divide by zero.");
-                    }
-                    break;
+                Console.WriteLine("\n--- Operator Menu ---");
+                Console.WriteLine("1. Addition (+)");
+                Console.WriteLine("2. Subtraction (-)");
+                Console.WriteLine("3. Multiplication (*)");
+                Console.WriteLine("4. Division (/)");
+                Console.Write("Enter your choice (1-4): ");
 
-                default:
-                    Console.WriteLine("Invalid Choice");
-                    break;
+                int choice = Convert.ToInt32(Console.ReadLine());
+                int c;
+
+                switch (choice)
+                {
+                    case 1:
+                        c = a + b;
+                        Console.WriteLine($"Result: {a} + {b} = {c}");
+                        break;
+
+                    case 2:
+                        c = a - b;
+                        Console.WriteLine($"Result: {a} - {b} = {c}");
+                        break;
+
+                    case 3:
+                        c = a * b;
+                        Console.WriteLine($"Result: {a} * {b} = {c}");
+                        break;
+
+                    case 4:
+                        if (b != 0)
+                        {
+                            c = a / b;
+                            Console.WriteLine($"Result: {a} / {b} = {c}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: Cannot divide by zero.");
+                        }
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid operation choice entered.");
+                        break;
+                }
             }
+
+            Console.WriteLine("\nAll repetitions completed! Program execution finished.");
         }
     }
 }

@@ -10,8 +10,7 @@ namespace Core_ConsoleApp1
     {
         static void Main(string[] args)
         {
-            
-            ConditionalExample.menu1();
+            MenuExample.RunRepeatedMenu();
         }
     }
 }
